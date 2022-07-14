@@ -1,0 +1,96 @@
+﻿<Window x:Class="Prisoners.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prisoners"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="dataGridPlaygrondList" Grid.Column="0" SelectionChanged="dataGridPlaygroundList_SelectionChanged"/>
+        <DataGrid x:Name="dataGridPrisonersList" Grid.Column="1"/>
+        
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                    <Label x:Name="labelLblParameters" Content="Parameters"/>
+                </Viewbox>
+                <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                    <Label x:Name="labelLblNumberOfPrisoners" Content="Prisoners:"/>
+                </Viewbox>
+                <Viewbox Grid.Row="2" HorizontalAlignment="Left">
+                    <Label x:Name="labelLblRepeat" Content="Repeat:" Grid.Row="2"/>
+                </Viewbox>
+                <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5" >
+                    <Viewbox>
+                        <TextBox x:Name="textBoxNumberOfPrisoners" Text="100" Grid.Row="1" Grid.Column="1"/>
+                    </Viewbox>                 </Grid>
+                <Grid Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="5">
+                    <Viewbox>
+                        <TextBox x:Name="textBoxNumberOfRepeat" Text="100" Grid.Row="2" Grid.Column="1"/>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+
+            <Viewbox Grid.Row="1">
+                <Button x:Name="buttonNew" Content="Go!" Click="buttonNew_Click" Margin="5"/>
+            </Viewbox>
+
+            <Border BorderBrush="Black" BorderThickness="1" Grid.RowSpan="3" Grid.Row="3" Margin="2"></Border>
+            
+            <Label x:Name="labelLblSuccessRatio" Content="Success ratio of all tries:" Grid.Row="2"/>
+            
+            <Viewbox Grid.Row="2">
+                <Label x:Name="labelSuccessRatio" Content="0%"/>
+            </Viewbox>
+
+            <Viewbox Grid.Row="3">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                
+                <Label Content="Passed / failed:" Grid.Row="0"/>
+
+                <Viewbox Grid.Row="1">
+                    <Label x:Name="labelPassed" Content="0" Foreground="Green"/>
+                </Viewbox>
+                <Viewbox Grid.Row="2">
+                    <Label x:Name="labelFailed" Content="0" Foreground="IndianRed"/>
+                </Viewbox>
+            </Grid>
+            </Viewbox>
+
+
+
+        </Grid>
+        
+
+    </Grid>
+</Window>
